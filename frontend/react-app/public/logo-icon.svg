@@ -1,0 +1,11 @@
+<svg id="dashboard_black_24dp" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="34" height="34" viewBox="0 0 34 34">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1.499" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#be0fd5"/>
+      <stop offset="0.488" stop-color="#7d6bcd"/>
+      <stop offset="1" stop-color="#39cbc5"/>
+    </linearGradient>
+  </defs>
+  <path id="パス_1" data-name="パス 1" d="M0,0H34V34H0Z" fill="none"/>
+  <path id="パス_2" data-name="パス 2" d="M3,17.167H14.333V3H3ZM3,28.5H14.333V20H3Zm14.167,0H28.5V14.333H17.167Zm0-25.5v8.5H28.5V3Z" transform="translate(1.25 1.25)" fill="url(#linear-gradient)"/>
+</svg>
