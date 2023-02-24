@@ -5,7 +5,7 @@ module Api
     class ReleaseController < ApplicationController
       def index
         releases = MstGitHubRelease.all
-        render json: {result: releases}
+        render json: {result: {a: 1, b:2}}
       end
     end
   end
