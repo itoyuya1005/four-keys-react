@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       get 'release/index', to: 'release#index'
+      get 'team/index', to: 'team#index'
+      get 'team/create', to: 'team#create'
     end
   end
 end
