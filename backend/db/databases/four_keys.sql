@@ -197,6 +197,51 @@ CREATE TABLE `trx_restore_service_release` (
   CONSTRAINT `fk:trs_release_id` FOREIGN KEY (`trs_release_id`) REFERENCES `trx_release` (`tre_release_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `restaurants`
+--
+
+DROP TABLE IF EXISTS `restaurants`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `restaurants` (
+    `restaurant_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'レストランID',
+    `name` varchar(255) NOT NULL COMMENT 'レストラン名',
+    `fee` int(11) DEFAULT NULL COMMENT '配送手数料',
+    `time_required` varchar(255) NOT NULL COMMENT '配送時間',
+    `registration_datetime` datetime NOT NULL COMMENT '登録日時',
+    `update_datetime` datetime NOT NULL COMMENT '更新日時',
+    `update_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'システム更新日時',
+    PRIMARY KEY (`restaurant_id`),
+    KEY `idx:restaurant_id` (`restaurant_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `foods`
+--
+
+DROP TABLE IF EXISTS `foods`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `foods` (
+    `food_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'フードID',
+    `restaurant_id` int(11) NOT NULL COMMENT 'レストランID',
+    `name` varchar(255) NOT NULL COMMENT 'フード名',
+    `price` int(11) DEFAULT NULL COMMENT 'フード価格 ',
+    `description` varchar(255) NOT NULL COMMENT 'フード説明',
+    `registration_datetime` datetime NOT NULL COMMENT '登録日時',
+    `update_datetime` datetime NOT NULL COMMENT '更新日時',
+    `update_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'システム更新日時',
+    PRIMARY KEY (`food_id`),
+    KEY `idx:food_id` (`food_id`),
+    KEY `fk:restaurant_id` (`restaurant_id`),
+    CONSTRAINT `fk:restaurant_id` FOREIGN KEY (`restaurant_id`) REFERENCES `restaurants` (`restaurant_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
 SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
